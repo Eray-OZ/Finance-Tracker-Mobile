@@ -2,15 +2,15 @@ import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { View } from 'react-native';
 import { DataTable } from 'react-native-paper';
-
-
 import { db } from "../configs/firebase.js";
 import { styles } from '../styles/style';
-
 import Title from "./Title.jsx";
 
 
 const ExpenseCard = () => {
+
+
+
   const [page, setPage] = useState(0);
   const [numberOfItemsPerPageList] = useState([4, 5, 6]);
   const [itemsPerPage, onItemsPerPageChange] = useState(
@@ -19,6 +19,8 @@ const ExpenseCard = () => {
 
 
   const [items, setItems] = useState([]);
+
+
 
 
 
@@ -36,11 +38,15 @@ const ExpenseCard = () => {
         ...doc.data(),
       }));
       setItems(newItems);
+
     });
 
-    // Bileşen unmount olursa dinlemeyi durdur
     return () => unsubscribe();
   }, []);
+
+
+
+
 
 
   const from = page * itemsPerPage;
@@ -52,6 +58,8 @@ const ExpenseCard = () => {
 
   return (
     <View style={styles.container}>
+
+
 
       <Title>Your Expenses</Title>
 

@@ -23,7 +23,14 @@ export default function Index() {
 
         <Link href="AddExpense" style={styles.link}><Button icon="wallet-plus" mode="contained">
           Add Expense</Button></Link>
+      </View>
 
+      <View style={{ flexDirection: "row" }}>
+
+        <Link href="ChartScreen" style={styles.link}><Button icon="wallet-plus" mode="contained">
+          Chart</Button></Link>
+        <Link href="AnalysisScreen" style={styles.link}><Button icon="wallet-plus" mode="contained">
+          Analysis of Your Expenses</Button></Link>
       </View>
 
 

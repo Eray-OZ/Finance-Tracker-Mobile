@@ -50,16 +50,16 @@ const AddExpense = () => {
             <Title>Add Expense</Title>
 
 
-            <Picker
-                selectedValue={category}
-                onValueChange={(itemValue) => setCategory(itemValue)}
-                style={styles.picker}>
-                <Picker.Item label="Food" value="food" />
-                <Picker.Item label="Transport" value="transport" />
-                <Picker.Item label="Shopping" value="shopping" />
-                <Picker.Item label="Other" value="other" />
-            </Picker>
-
+            <View style={styles.picker}>
+                <Picker
+                    selectedValue={category}
+                    onValueChange={(itemValue) => setCategory(itemValue)}>
+                    <Picker.Item label="Food" value="food" />
+                    <Picker.Item label="Transport" value="transport" />
+                    <Picker.Item label="Shopping" value="shopping" />
+                    <Picker.Item label="Other" value="other" />
+                </Picker>
+            </View>
 
             <TextInput
                 style={styles.input}
@@ -76,7 +76,7 @@ const AddExpense = () => {
 
 
 
-            <Button icon="plus" mode='contained' style={{ margin: 5 }} onPress={addExpense}>Submit</Button>
+            <Button icon="plus" mode='contained' style={styles.button} onPress={addExpense}>Submit</Button>
 
         </View>
     )

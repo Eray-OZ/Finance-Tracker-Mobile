@@ -54,15 +54,26 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
         width: 200,
         textAlign: "center",
-        margin: 10
+        margin: 10,
+        height: 50,
+        backgroundColor: COLORS.textLight,
+        color: "white"
     },
 
     picker: {
         borderWidth: 1,
         borderRadius: 10,
-        width: 200,
         margin: 10,
-        backgroundColor: COLORS.textLight
+        width: 200,
+        height: 55,
+        backgroundColor: COLORS.textLight,
+        overflow: 'hidden',
+    },
+    button: {
+        margin: 15,
+        backgroundColor: COLORS.card,
+        borderColor: COLORS.primary,
+        borderWidth: 2
     }
 
 })
