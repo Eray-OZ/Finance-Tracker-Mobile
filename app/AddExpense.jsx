@@ -8,7 +8,7 @@ import { Button } from 'react-native-paper';
 import { db } from "../configs/firebase.js";
 import { styles } from '../styles/style.js';
 
-import Title from "./Title.jsx";
+import Title from "./components/Title.jsx";
 
 
 
@@ -49,34 +49,38 @@ const AddExpense = () => {
 
             <Title>Add Expense</Title>
 
+            <View style={styles.inputArea}>
 
-            <View style={styles.picker}>
-                <Picker
-                    selectedValue={category}
-                    onValueChange={(itemValue) => setCategory(itemValue)}>
-                    <Picker.Item label="Food" value="food" />
-                    <Picker.Item label="Transport" value="transport" />
-                    <Picker.Item label="Shopping" value="shopping" />
-                    <Picker.Item label="Other" value="other" />
-                </Picker>
+                <View style={styles.picker}>
+                    <Picker
+                        selectedValue={category}
+                        onValueChange={(itemValue) => setCategory(itemValue)}>
+                        <Picker.Item label="Food" value="food" />
+                        <Picker.Item label="Transport" value="transport" />
+                        <Picker.Item label="Shopping" value="shopping" />
+                        <Picker.Item label="Bill" value="bill" />
+                        <Picker.Item label="Rent" value="rent" />
+                        <Picker.Item label="Entertainment" value="entertainment" />
+                        <Picker.Item label="Other" value="other" />
+                    </Picker>
+                </View>
+
+                <TextInput
+                    style={styles.input}
+                    placeholder='Description'
+                    value={description}
+                    onChangeText={setDescription} />
+
+                <TextInput
+                    style={styles.input}
+                    keyboardType="numeric"
+                    placeholder='Amount'
+                    value={amount}
+                    onChangeText={setAmount} />
+
             </View>
 
-            <TextInput
-                style={styles.input}
-                placeholder='Description'
-                value={description}
-                onChangeText={setDescription} />
-
-            <TextInput
-                style={styles.input}
-                keyboardType="numeric"
-                placeholder='Amount'
-                value={amount}
-                onChangeText={setAmount} />
-
-
-
-            <Button icon="plus" mode='contained' style={styles.button} onPress={addExpense}>Submit</Button>
+            <Button icon="plus" mode='contained' style={styles.button} onPress={addExpense} textColor='black'>Submit</Button>
 
         </View>
     )
