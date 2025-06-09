@@ -53,7 +53,7 @@ const PieGraph = () => {
             legendFontSize: 15
         },
         {
-            name: "entertainment",
+            name: "ent.",
             amount: 0,
             color: "purple",
             legendFontColor: COLORS.text,

@@ -1,4 +1,3 @@
-import { Picker } from '@react-native-picker/picker';
 import { useNavigation } from '@react-navigation/native';
 import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { useState } from 'react';
@@ -13,33 +12,30 @@ import Title from "./components/Title.jsx";
 
 
 
-const AddExpense = () => {
+const AddIncome = () => {
 
     const navigation = useNavigation();
 
-    const [category, setCategory] = useState("");
     const [description, setDescription] = useState("");
     const [amount, setAmount] = useState(0);
 
 
 
 
-    const addExpense = async () => {
+    const addIncome = async () => {
 
 
-        await addDoc(collection(db, 'expenseList'), {
-            category: category,
+        await addDoc(collection(db, 'incomeList'), {
             description: description,
             amount: parseFloat(amount),
             date: Timestamp.now()
         });
 
 
-        setCategory("");
         setDescription("");
         setAmount("");
 
-        navigation.navigate("ExpenseCard");
+        navigation.navigate("BarGraph");
     }
 
 
@@ -47,23 +43,11 @@ const AddExpense = () => {
     return (
         <View style={styles.container}>
 
-            <Title>Add Expense</Title>
+            <Title>Add Income</Title>
 
             <View style={styles.inputArea}>
 
-                <View style={styles.picker}>
-                    <Picker
-                        selectedValue={category}
-                        onValueChange={(itemValue) => setCategory(itemValue)}>
-                        <Picker.Item label="Food" value="food" />
-                        <Picker.Item label="Transport" value="transport" />
-                        <Picker.Item label="Shopping" value="shopping" />
-                        <Picker.Item label="Bill" value="bill" />
-                        <Picker.Item label="Rent" value="rent" />
-                        <Picker.Item label="Entertainment" value="ent." />
-                        <Picker.Item label="Other" value="other" />
-                    </Picker>
-                </View>
+
 
                 <TextInput
                     style={styles.input}
@@ -80,7 +64,7 @@ const AddExpense = () => {
 
             </View>
 
-            <Button icon="plus" mode='contained' style={styles.button} onPress={addExpense} textColor='black'>Submit</Button>
+            <Button icon="plus" mode='contained' style={styles.button} onPress={addIncome} textColor='black'>Submit</Button>
 
         </View>
     )
@@ -89,4 +73,4 @@ const AddExpense = () => {
 }
 
 
-export default AddExpense
+export default AddIncome

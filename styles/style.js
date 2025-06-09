@@ -25,13 +25,6 @@ export const styles = StyleSheet.create({
         borderWidth: 4
     },
 
-    // headerHome: {
-    //     color: COLORS.primary,
-    //     marginBottom: 50,
-    //     fontSize: 18,
-    //     fontFamily: "monospace"
-    // },
-
     table: {
         backgroundColor: COLORS.primary,
         margin: 5,
@@ -127,6 +120,7 @@ export const styles = StyleSheet.create({
         borderWidth: 2,
         width: 75,
         backgroundColor: COLORS.textLight,
+        borderRadius: 10
     },
 
     description: {
@@ -135,6 +129,8 @@ export const styles = StyleSheet.create({
         borderWidth: 2,
         width: 125,
         backgroundColor: COLORS.textLight,
+        borderRadius: 10
+
     },
 
     amount: {
@@ -143,6 +139,8 @@ export const styles = StyleSheet.create({
         borderWidth: 2,
         width: 75,
         backgroundColor: COLORS.textLight,
+        borderRadius: 10
+
     },
 
     analysis: {
@@ -151,6 +149,11 @@ export const styles = StyleSheet.create({
         borderRadius: 25,
         borderColor: COLORS.border,
         backgroundColor: COLORS.card
-    }
+    },
+
+    bar: {
+        margin: 5,
+    },
+
 
 })
