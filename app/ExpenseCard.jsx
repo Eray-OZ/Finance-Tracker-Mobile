@@ -6,6 +6,8 @@ import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import Title from "./components/Title.jsx"
 import PieGraph from "./components/PieGraph.jsx";
 import { COLORS } from "../constants/color.js";
+import { Link } from "expo-router";
+
 
 
 
@@ -55,18 +57,20 @@ const ExpenseCard = () => {
       <View>
         <View style={styles.expenses}>
 
-          <View style={styles.category}>
-            <Text style={{ color: "white" }}>{category}</Text>
-          </View>
 
-          <View style={styles.description}>
-            <Text style={{ color: "white" }}>{item.description}</Text>
-          </View>
+          <Link href="BarGraph">
+            <View style={styles.category}>
+              <Text style={{ color: "white" }}>{category}</Text>
+            </View>
 
-          <View style={styles.amount}>
-            <Text style={{ color: "white" }}>{item.amount}</Text>
-          </View>
+            <View style={styles.description}>
+              <Text style={{ color: "white" }}>{item.description}</Text>
+            </View>
 
+            <View style={styles.amount}>
+              <Text style={{ color: "white" }}>{item.amount}</Text>
+            </View>
+          </Link>
 
         </View>
 

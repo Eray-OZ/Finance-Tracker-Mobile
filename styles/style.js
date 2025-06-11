@@ -168,7 +168,7 @@ export const styles = StyleSheet.create({
     },
 
     balance: {
-        borderWidth: 1,
+        borderWidth: 2,
         width: 330,
         height: 160,
         marginBottom: 30,
@@ -177,7 +177,8 @@ export const styles = StyleSheet.create({
         padding: 10,
         backgroundColor: COLORS.card,
         shadowColor: COLORS.shadow,
-        elevation: 5
+        elevation: 5,
+        borderColor: COLORS.primary
     },
 
     bottom: {
@@ -198,8 +199,5 @@ export const styles = StyleSheet.create({
         marginRight: 10
     },
 
-    total: {
-        marginTop: 10,
-        fontSize: 25
-    }
+
 })

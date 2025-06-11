@@ -4,8 +4,9 @@ import { Button } from 'react-native-paper';
 import { styles } from "../styles/style.js";
 import Title from "./components/Title.jsx";
 import { useState, useEffect } from "react"
-import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
+import { collection, onSnapshot, query } from 'firebase/firestore';
 import { db } from "../configs/firebase.js";
+import { COLORS } from "../constants/color.js";
 
 
 export default function Index() {
@@ -17,6 +18,7 @@ export default function Index() {
 
   const [balance, setBalance] = useState(0)
 
+  const [positive, setPositive] = useState(COLORS.income)
 
   useEffect(() => {
 
@@ -38,7 +40,7 @@ export default function Index() {
     return () => unsubscribe();
 
 
-  }, [expense])
+  }, [])
 
 
 
@@ -62,7 +64,16 @@ export default function Index() {
 
     return () => unsubscribe();
 
-  }, [income])
+  }, [])
+
+
+
+  useEffect(() => {
+    setBalance(income - expense)
+
+    if (income < expense) setPositive(COLORS.expense)
+
+  }, [income, expense])
 
 
   return (
@@ -74,7 +85,7 @@ export default function Index() {
 
       <View style={styles.balance}>
 
-        <Text style={styles.total}><Text style={{ fontSize: 20 }}>Total Balance: </Text>${income - expense}</Text>
+        <Text style={{ marginTop: 10, fontSize: 25, color: positive }}><Text style={{ fontSize: 20 }}>Total Balance: </Text>${balance}</Text>
 
         <View style={styles.bottom}>
 
@@ -101,8 +112,6 @@ export default function Index() {
           <Link href="BarGraph" style={styles.link}><Button icon="chart-box" mode="contained" style={styles.linkButton} textColor="black">
             Chart</Button></Link>
 
-          <Link href="AnalysisScreen" style={styles.link}><Button icon="google-analytics" mode="contained" style={styles.linkButton} textColor="black">
-            Analysis</Button></Link>
         </View>
 
 
