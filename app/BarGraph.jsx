@@ -76,6 +76,9 @@ const BarGraph = () => {
 
 
 
+
+
+
             <Title>Expenses by Month</Title>
 
 

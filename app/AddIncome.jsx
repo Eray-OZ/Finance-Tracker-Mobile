@@ -41,7 +41,10 @@ const AddIncome = () => {
 
 
     return (
-        <View style={styles.container}>
+        <View style={styles.form}>
+
+
+
 
             <Title>Add Income</Title>
 

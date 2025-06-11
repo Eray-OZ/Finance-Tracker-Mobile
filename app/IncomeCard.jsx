@@ -44,6 +44,8 @@ const ExpenseCard = () => {
 
         return (
             <View>
+
+
                 <View style={styles.expenses}>
 
                     <View style={styles.description}>
@@ -69,9 +71,13 @@ const ExpenseCard = () => {
 
 
 
-            <View style={{ margin: 125 }}>
-                <View style={styles.flatList}>
+            <View style={{ margin: 5 }}>
 
+
+
+
+
+                <View stlye={{ marginBottom: 200 }}>
 
                     <Title>Your Income</Title>
 
@@ -91,6 +97,8 @@ const ExpenseCard = () => {
                         renderItem={renderExpense}
                         keyExtractor={(item) => item.id}
                         showsVerticalScrollIndicator={false} />
+
+
 
 
                 </View>

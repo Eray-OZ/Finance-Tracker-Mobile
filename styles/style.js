@@ -144,6 +144,7 @@ export const styles = StyleSheet.create({
     },
 
     analysis: {
+        margin: 25,
         padding: 12,
         borderWidth: 5,
         borderRadius: 25,
@@ -155,5 +156,50 @@ export const styles = StyleSheet.create({
         margin: 5,
     },
 
+    form: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: COLORS.background,
+        margin: 25,
+        padding: 45,
+        borderWidth: 2,
+        borderRadius: 25
+    },
 
+    balance: {
+        borderWidth: 1,
+        width: 330,
+        height: 160,
+        marginBottom: 30,
+        marginTop: 30,
+        borderRadius: 10,
+        padding: 10,
+        backgroundColor: COLORS.card,
+        shadowColor: COLORS.shadow,
+        elevation: 5
+    },
+
+    bottom: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 60
+    },
+
+    income: {
+        color: COLORS.income,
+        fontSize: 15,
+        marginLeft: 10
+    },
+
+    expense: {
+        color: COLORS.expense,
+        fontSize: 15,
+        marginRight: 10
+    },
+
+    total: {
+        marginTop: 10,
+        fontSize: 25
+    }
 })

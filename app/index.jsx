@@ -1,12 +1,68 @@
 import { Link } from "expo-router";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import { Button } from 'react-native-paper';
 import { styles } from "../styles/style.js";
 import Title from "./components/Title.jsx";
+import { useState, useEffect } from "react"
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
+import { db } from "../configs/firebase.js";
 
 
 export default function Index() {
 
+
+  const [expense, setExpense] = useState(0)
+
+  const [income, setIncome] = useState(0)
+
+  const [balance, setBalance] = useState(0)
+
+
+  useEffect(() => {
+
+    let c = 0
+
+    const q = query(
+      collection(db, 'expenseList')
+    )
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      snapshot.docs.map(doc => {
+        const data = doc.data()
+        c += data.amount
+      })
+
+      setExpense(c)
+    })
+
+    return () => unsubscribe();
+
+
+  }, [expense])
+
+
+
+  useEffect(() => {
+
+    let c = 0
+
+    const q = query(
+      collection(db, 'incomeList'),
+    )
+
+
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      snapshot.docs.map(doc => {
+        const data = doc.data()
+        c += data.amount
+      })
+
+      setIncome(c)
+    })
+
+    return () => unsubscribe();
+
+  }, [income])
 
 
   return (
@@ -15,7 +71,19 @@ export default function Index() {
       <Title>Finance Tracker</Title>
 
 
-      {/* <Image source={require('../assets/images/2.png')} style={styles.image}></Image> */}
+
+      <View style={styles.balance}>
+
+        <Text style={styles.total}><Text style={{ fontSize: 20 }}>Total Balance: </Text>${income - expense}</Text>
+
+        <View style={styles.bottom}>
+
+          <Text style={styles.income}>Income: +${income}</Text>
+          <Text style={styles.expense}>Expense: -${expense}</Text>
+        </View>
+
+      </View>
+
 
 
       <View style={styles.buttonGroup}>

@@ -45,7 +45,7 @@ const AddExpense = () => {
 
 
     return (
-        <View style={styles.container}>
+        <View style={styles.form}>
 
             <Title>Add Expense</Title>
 
