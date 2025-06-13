@@ -101,9 +101,6 @@ const ExpenseCard = () => {
                         keyExtractor={(item) => item.id}
                         showsVerticalScrollIndicator={false} />
 
-
-
-
                 </View>
             </View>
         </View>

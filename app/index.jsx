@@ -7,7 +7,6 @@ import { useState, useEffect } from "react"
 import { collection, onSnapshot, query } from 'firebase/firestore';
 import { db } from "../configs/firebase.js";
 import { COLORS } from "../constants/color.js";
-import BottomNav from "./components/BottomNav.jsx";
 
 export default function Index() {
 
@@ -110,12 +109,6 @@ export default function Index() {
             Add Expense</Button></Link>
         </View>
 
-        <View style={{ flexDirection: "row" }}>
-
-          <Link href="BarGraph" style={styles.link}><Button icon="chart-box" mode="contained" style={styles.linkButton} textColor="black">
-            Chart</Button></Link>
-
-        </View>
 
 
 

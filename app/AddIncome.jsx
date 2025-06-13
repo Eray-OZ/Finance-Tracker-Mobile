@@ -35,7 +35,7 @@ const AddIncome = () => {
         setDescription("");
         setAmount("");
 
-        navigation.navigate("BarGraph");
+        navigation.navigate("IncomeCard");
     }
 
 

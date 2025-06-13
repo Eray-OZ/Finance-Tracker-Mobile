@@ -7,7 +7,6 @@ import Title from "./components/Title.jsx"
 import PieGraph from "./components/PieGraph.jsx";
 import { COLORS } from "../constants/color.js";
 import { Link } from "expo-router";
-import BottomNav from "./components/BottomNav.jsx";
 
 
 
