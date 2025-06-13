@@ -4,10 +4,8 @@ import { addDoc, collection, Timestamp } from 'firebase/firestore';
 import { useState } from 'react';
 import { TextInput, View } from 'react-native';
 import { Button } from 'react-native-paper';
-
 import { db } from "../configs/firebase.js";
 import { styles } from '../styles/style.js';
-
 import Title from "./components/Title.jsx";
 
 
@@ -17,7 +15,7 @@ const AddExpense = () => {
 
     const navigation = useNavigation();
 
-    const [category, setCategory] = useState("");
+    const [category, setCategory] = useState("food");
     const [description, setDescription] = useState("");
     const [amount, setAmount] = useState(0);
 
@@ -45,7 +43,7 @@ const AddExpense = () => {
 
 
     return (
-        <View style={styles.form}>
+        <View style={styles.container}>
 
             <Title>Add Expense</Title>
 
@@ -81,6 +79,8 @@ const AddExpense = () => {
             </View>
 
             <Button icon="plus" mode='contained' style={styles.button} onPress={addExpense} textColor='black'>Submit</Button>
+
+
 
         </View>
     )

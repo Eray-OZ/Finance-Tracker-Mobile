@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Text, View, TouchableOpacity } from "react-native";
 import { styles } from "../styles/style.js";
 import { db } from "../configs/firebase.js"
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
@@ -7,7 +7,7 @@ import Title from "./components/Title.jsx"
 import PieGraph from "./components/PieGraph.jsx";
 import { COLORS } from "../constants/color.js";
 import { Link } from "expo-router";
-
+import BottomNav from "./components/BottomNav.jsx";
 
 
 
@@ -55,24 +55,24 @@ const ExpenseCard = () => {
 
     return (
       <View>
-        <View style={styles.expenses}>
+        <Link href={`/expense/${item.id}`} asChild>
+          <TouchableOpacity>
+            <View style={styles.expenses}>
+              <View style={styles.category}>
+                <Text style={{ color: "white" }}>{category}</Text>
+              </View>
 
+              <View style={styles.description}>
+                <Text style={{ color: "white" }}>{item.description}</Text>
+              </View>
 
-          <Link href="BarGraph">
-            <View style={styles.category}>
-              <Text style={{ color: "white" }}>{category}</Text>
+              <View style={styles.amount}>
+                <Text style={{ color: "white" }}>{item.amount}</Text>
+              </View>
+
             </View>
-
-            <View style={styles.description}>
-              <Text style={{ color: "white" }}>{item.description}</Text>
-            </View>
-
-            <View style={styles.amount}>
-              <Text style={{ color: "white" }}>{item.amount}</Text>
-            </View>
-          </Link>
-
-        </View>
+          </TouchableOpacity>
+        </Link>
 
         <View style={{ borderTopWidth: 2, borderColor: COLORS.primary }}></View>
 
@@ -86,6 +86,9 @@ const ExpenseCard = () => {
 
 
       <PieGraph />
+
+
+
 
       <View style={{ margin: 125 }}>
         <View style={styles.flatList}>
@@ -114,6 +117,10 @@ const ExpenseCard = () => {
 
         </View>
       </View>
+
+
+
+
     </View>
   );
 }

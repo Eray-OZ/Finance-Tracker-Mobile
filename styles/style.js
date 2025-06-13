@@ -69,7 +69,6 @@ export const styles = StyleSheet.create({
         backgroundColor: COLORS.white,
         borderColor: COLORS.primary,
         borderWidth: 2,
-
     },
 
     pie: {
@@ -120,7 +119,7 @@ export const styles = StyleSheet.create({
         borderWidth: 2,
         width: 75,
         backgroundColor: COLORS.textLight,
-        borderRadius: 10
+        borderRadius: 10,
     },
 
     description: {
@@ -169,7 +168,7 @@ export const styles = StyleSheet.create({
 
     balance: {
         borderWidth: 2,
-        width: 330,
+        width: 320,
         height: 160,
         marginBottom: 30,
         marginTop: 30,
@@ -199,5 +198,39 @@ export const styles = StyleSheet.create({
         marginRight: 10
     },
 
+    deleteButton: {
+        backgroundColor: COLORS.expense,
+        borderColor: "black",
+        borderWidth: 2,
+        width: 175,
+        marginTop: 10,
+        marginLeft: 10
+    },
+
+    bottomButtons: {
+        bottom: 0,
+        left: 0,
+        right: 0,
+        padding: 10,
+        backgroundColor: '#fff',
+        borderWidth: 3,
+        borderColor: '#ccc',
+        flexDirection: 'row',
+        borderRadius: 15,
+        height: 50,
+        color: "red"
+    },
+
+    bottomButton: {
+        flex: 1,
+        textAlign: 'center',
+        textAlignVertical: 'center',
+        fontSize: 24,
+        marginLeft: 17,
+    },
+
+    bottomButtonContent: {
+        color: COLORS.primary
+    }
 
 })

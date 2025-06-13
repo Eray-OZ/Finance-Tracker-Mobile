@@ -7,7 +7,7 @@ import { useState, useEffect } from "react"
 import { collection, onSnapshot, query } from 'firebase/firestore';
 import { db } from "../configs/firebase.js";
 import { COLORS } from "../constants/color.js";
-
+import BottomNav from "./components/BottomNav.jsx";
 
 export default function Index() {
 
@@ -22,13 +22,14 @@ export default function Index() {
 
   useEffect(() => {
 
-    let c = 0
 
     const q = query(
       collection(db, 'expenseList')
     )
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
+      let c = 0
+
       snapshot.docs.map(doc => {
         const data = doc.data()
         c += data.amount
@@ -46,7 +47,6 @@ export default function Index() {
 
   useEffect(() => {
 
-    let c = 0
 
     const q = query(
       collection(db, 'incomeList'),
@@ -54,6 +54,8 @@ export default function Index() {
 
 
     const unsubscribe = onSnapshot(q, (snapshot) => {
+      let c = 0
+
       snapshot.docs.map(doc => {
         const data = doc.data()
         c += data.amount
@@ -72,6 +74,7 @@ export default function Index() {
     setBalance(income - expense)
 
     if (income < expense) setPositive(COLORS.expense)
+    else setPositive(COLORS.income)
 
   }, [income, expense])
 
@@ -122,8 +125,14 @@ export default function Index() {
 
           <Link href="AddIncome" style={styles.link}><Button icon="wallet-plus" mode="contained" style={styles.linkButton} textColor="black">
             Add Income</Button></Link>
+
+
         </View>
+
+
       </View>
+
+
 
     </View>
   );
