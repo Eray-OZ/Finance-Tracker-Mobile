@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { FlatList, Text, View } from "react-native";
+import { FlatList, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "../styles/style.js";
 import { db } from "../configs/firebase.js"
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import Title from "./components/Title.jsx"
 import { COLORS } from "../constants/color.js";
+import { Link } from "expo-router";
 
 
 
@@ -45,22 +46,24 @@ const ExpenseCard = () => {
         return (
             <View>
 
+                <Link href={`/income/${item.id}`} asChild>
+                    <TouchableOpacity>
+                        <View style={styles.expenses}>
 
-                <View style={styles.expenses}>
+                            <View style={styles.description}>
+                                <Text style={{ color: "white" }}>{item.description}</Text>
+                            </View>
 
-                    <View style={styles.description}>
-                        <Text style={{ color: "white" }}>{item.description}</Text>
-                    </View>
-
-                    <View style={styles.amount}>
-                        <Text style={{ color: "white" }}>{item.amount}</Text>
-                    </View>
+                            <View style={styles.amount}>
+                                <Text style={{ color: "white" }}>{item.amount}</Text>
+                            </View>
 
 
-                </View>
+                        </View>
 
-                <View style={{ borderTopWidth: 2, borderColor: COLORS.primary }}></View>
-
+                        <View style={{ borderTopWidth: 2, borderColor: COLORS.primary }}></View>
+                    </TouchableOpacity>
+                </Link>
             </View>)
     }
 
